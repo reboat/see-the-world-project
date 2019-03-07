@@ -3,7 +3,9 @@
     package="com.daily.see.world">
 
     <application>
-        <activity android:name=".SeeTheWorldActivity"></activity>
+        <activity
+            android:name=".SeeTheWorldActivity"
+            android:theme="@style/FullscreenTheme"></activity>
     </application>
 
 </manifest>

@@ -1,50 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.aliya.view.fitsys.FitWindowsFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/_cd3f3f">
+    android:fitsSystemWindows="true"
+    android:background="@drawable/activity_default_background"
+    app:fitType="bottom">
 
-    <TextView
-        android:id="@+id/image_list_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="30dp"
-        android:textSize="21sp"
-        android:textColor="@color/white"
-        android:text="@string/image_list_title"/>
-
-    <cn.daily.stack.card.StackCardViewPager
-        android:id="@+id/stack_card_vp"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="560dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="30dp"
-        android:layout_below="@+id/image_list_title" />
+        android:layout_height="match_parent"
+        android:background="@color/_cd3f3f"
+        android:orientation="vertical">
 
-    <RelativeLayout
-        android:gravity="center_vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp">
-
-        <ImageView
-            android:id="@+id/image_back"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/back"
-            android:layout_marginLeft="10dp"
-            android:layout_centerVertical="true"/>
-
-        <cn.daily.stack.card.view.ticker.TickerView
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
-            android:id="@+id/image_show_position"
+        <TextView
+            android:id="@+id/image_list_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="21sp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:text="@string/image_list_title"
             android:textColor="@color/white"
-            android:layout_marginRight="30dp"/>
-    </RelativeLayout>
-</LinearLayout>
+            android:textSize="21sp" />
+
+        <cn.daily.stack.card.StackCardViewPager
+            android:id="@+id/stack_card_vp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="63dp"
+            android:layout_marginBottom="53dp"
+            android:layout_weight="1" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/image_back"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/back" />
+
+            <cn.daily.stack.card.view.ticker.TickerView
+                android:id="@+id/image_show_position"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="26dp"
+                android:textColor="@color/white"
+                android:textSize="21sp" />
+        </RelativeLayout>
+    </LinearLayout>
+</com.aliya.view.fitsys.FitWindowsFrameLayout>
