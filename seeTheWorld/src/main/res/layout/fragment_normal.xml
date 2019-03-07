@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.NormalFragment">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="293dp"
+                android:layout_height="193dp"
+                android:src="@drawable/news_img1"
+                android:scaleType="centerCrop"/>
+
+           <LinearLayout
+               android:layout_margin="15dp"
+               android:orientation="vertical"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content">
+               <TextView
+                   android:layout_marginBottom="14dp"
+                   android:id="@+id/title"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="普京若美国退出中岛条约俄罗"
+                   android:textColor="@color/_222222"
+                   android:textSize="18sp"/>
+               <LinearLayout
+                   android:orientation="horizontal"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content">
+                   <TextView
+                       android:layout_marginRight="13dp"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="浙江新闻客户端 "
+                       android:textColor="#ffbfbfbf"
+                       android:textSize="12sp"
+                       />
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="2018.10.25 10:16"
+                       android:textColor="#ffbfbfbf"
+                       android:textSize="12sp"
+                       />
+               </LinearLayout>
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="记者：邵晨婵 通讯员 章悦越 章悦 小格 小飞… "
+                   android:textColor="#ffbfbfbf"
+                   android:textSize="12sp"
+                   />
+               <LinearLayout
+                   android:orientation="horizontal"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content">
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="中国青年好微信公众号"
+                       android:textColor="#ffbfbfbf"
+                       android:textSize="12sp"
+                       android:layout_marginRight="13dp"
+                       />
+                   <TextView
+                       android:id="@+id/read_count"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="17万人阅读"
+                       android:textColor="#ffbfbfbf"
+                       android:textSize="12sp"
+                       />
+               </LinearLayout>
+
+
+               <TextView
+                   android:layout_marginTop="20dp"
+                   android:id="@+id/content"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="俄罗斯联邦总统普京在莫斯科克里姆林宫接受中国中央广播电视塔台长慎海雄的独家专访。出席上海合作组..."
+                   android:textColor="#ff666666"
+                   android:textSize="16sp"
+                   android:layout_marginBottom="60dp"
+                   />
+           </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </android.support.v7.widget.CardView>
+</FrameLayout>
