@@ -20,26 +20,26 @@ import cn.daily.stack.card.view.ticker.TickerView;
 
 public class SeeTheWorldActivity extends AppCompatActivity {
 
-    private StackCardViewPager stackCardViewPager;
+    private StackCardViewPager mStackCardViewPager;
     private NewsCardAdapter mNewsCardAdapter;
 
-    private ImageView back;
-    private TickerView imageShowPosition;
+    private ImageView mBackImageView;
+    private TickerView mPositionView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_see_the_world);
 
-        stackCardViewPager = findViewById(R.id.stack_card_vp);
-        back = findViewById(R.id.image_back);
-        imageShowPosition = findViewById(R.id.image_show_position);
-        imageShowPosition.setCharacterLists(TickerUtils.provideNumberList());
+        mStackCardViewPager = findViewById(R.id.stack_card_vp);
+        mBackImageView = findViewById(R.id.image_back);
+        mPositionView = findViewById(R.id.image_show_position);
+        mPositionView.setCharacterLists(TickerUtils.provideNumberList());
 
         configLeftStackCardViewPager();
         loadData();
 
-        back.setOnClickListener(new View.OnClickListener() {
+        mBackImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
@@ -51,20 +51,20 @@ public class SeeTheWorldActivity extends AppCompatActivity {
      * 配置左层叠 StackCardViewPager
      */
     private void configLeftStackCardViewPager() {
-        stackCardViewPager.setPageTransformer(true, StackCardPageTransformer.getBuild()
+        mStackCardViewPager.setPageTransformer(true, StackCardPageTransformer.getBuild()
                 .setViewType(PageTransformerConfig.LEFT) //层叠方向
                 .setTranslationOffset(UIUtils.dip2px(45f)) //左右位置偏移量
                 .setScaleOffset(UIUtils.dip2px(50f)) //缩放偏移量
                 .setAlphaOffset(0.5f) //卡片透明度偏移量
                 .setRotationOffset(10) //卡片滑动时的最大旋转角度
                 .setMaxShowPage(3) //最大显示的页数
-                .create(stackCardViewPager));
+                .create(mStackCardViewPager));
 
         //创建适配器
         mNewsCardAdapter = new NewsCardAdapter(getSupportFragmentManager());
-        stackCardViewPager.setAdapter(mNewsCardAdapter);
+        mStackCardViewPager.setAdapter(mNewsCardAdapter);
 
-        stackCardViewPager.addOnPageChangeListener(new StackCardViewPager.OnPageChangeListener() {
+        mStackCardViewPager.addOnPageChangeListener(new StackCardViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
@@ -73,7 +73,7 @@ public class SeeTheWorldActivity extends AppCompatActivity {
             @Override
             public void onPageSelected(int position) {
                 //显示浏览到第几张
-                imageShowPosition.setText(String.format("%s/%s",
+                mPositionView.setText(String.format("%s/%s",
                         mNewsCardAdapter.toRealShowPosition(position), mNewsCardAdapter.getData().size()));
             }
 
@@ -95,6 +95,6 @@ public class SeeTheWorldActivity extends AppCompatActivity {
         }
 
         mNewsCardAdapter.setList(list, true);
-        stackCardViewPager.setCurrentItem(mNewsCardAdapter.getMiddlePosition(), false); //刚开始显示最后一个，也就是第一条数据
+        mStackCardViewPager.setCurrentItem(mNewsCardAdapter.getMiddlePosition(), false); //刚开始显示最后一个，也就是第一条数据
     }
 }

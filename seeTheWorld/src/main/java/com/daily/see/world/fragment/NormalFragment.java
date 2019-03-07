@@ -22,13 +22,13 @@ import com.daily.see.world.bean.NewsBean;
  */
 public class NormalFragment extends Fragment {
 
-    private NewsBean newsBean;
+    private NewsBean mNewsBean;
 
-    private CardView cardView;
-    private ImageView image;
-    private TextView title;
-    private TextView content;
-    private TextView readCount;
+    private CardView mCardView;
+    private ImageView mImageView;
+    private TextView mTitle;
+    private TextView mContent;
+    private TextView mReadCount;
 
 
     public static NormalFragment getInstance(NewsBean news) {
@@ -45,16 +45,16 @@ public class NormalFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_normal, container, false);
 
-        cardView = view.findViewById(R.id.card_view);
-        image = view.findViewById(R.id.image);
-        title = view.findViewById(R.id.title);
-        content = view.findViewById(R.id.content);
-        readCount = view.findViewById(R.id.read_count);
+        mCardView = view.findViewById(R.id.card_view);
+        mImageView = view.findViewById(R.id.image);
+        mTitle = view.findViewById(R.id.title);
+        mContent = view.findViewById(R.id.content);
+        mReadCount = view.findViewById(R.id.read_count);
 
-        cardView.setOnClickListener(new View.OnClickListener() {
+        mCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "点击了" + title.getText().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "点击了" + mTitle.getText().toString(), Toast.LENGTH_SHORT).show();
             }
         });
         return view;
@@ -65,13 +65,13 @@ public class NormalFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         if (getArguments() != null) {
-            newsBean = (NewsBean) getArguments().getSerializable("news");
+            mNewsBean = (NewsBean) getArguments().getSerializable("news");
         }
 
-        if(newsBean != null){ //显示数据
-            title.setText(newsBean.getTitle());
-            content.setText(newsBean.getContent());
-            readCount.setText(String.format("%d人已读", newsBean.getReadCount()));
+        if(mNewsBean != null){ //显示数据
+            mTitle.setText(mNewsBean.getTitle());
+            mContent.setText(mNewsBean.getContent());
+            mReadCount.setText(String.format("%d人已读", mNewsBean.getReadCount()));
         }
 
     }
