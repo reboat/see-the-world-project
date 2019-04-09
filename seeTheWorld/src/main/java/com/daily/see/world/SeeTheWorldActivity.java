@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.daily.see.world.adapter.NewsCardAdapter;
 import com.daily.see.world.bean.NewsBean;
@@ -25,6 +26,7 @@ public class SeeTheWorldActivity extends AppCompatActivity {
 
     private ImageView mBackImageView;
     private TickerView mPositionView;
+    private TextView mTotalView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,7 @@ public class SeeTheWorldActivity extends AppCompatActivity {
         mStackCardViewPager = findViewById(R.id.stack_card_vp);
         mBackImageView = findViewById(R.id.image_back);
         mPositionView = findViewById(R.id.image_show_position);
+        mTotalView=findViewById(R.id.show_total_num);
         mPositionView.setCharacterLists(TickerUtils.provideNumberList());
 
         configLeftStackCardViewPager();
@@ -73,8 +76,8 @@ public class SeeTheWorldActivity extends AppCompatActivity {
             @Override
             public void onPageSelected(int position) {
                 //显示浏览到第几张
-                mPositionView.setText(String.format("%s/%s",
-                        mNewsCardAdapter.toRealShowPosition(position), mNewsCardAdapter.getData().size()));
+                mPositionView.setText(String.valueOf(mNewsCardAdapter.toRealShowPosition(position)));
+                mTotalView.setText("/"+mNewsCardAdapter.getData().size());
             }
 
             @Override
